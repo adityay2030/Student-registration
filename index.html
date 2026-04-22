@@ -1,121 +1,190 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Registration</title>
-    <style>
-        body { font-family: Arial; background:#f4f6f8; padding:20px;}
-        .container { max-width:700px; margin:auto; background:#fff; padding:20px; border-radius:10px;}
-        input, select, textarea { width:100%; padding:8px; margin:8px 0;}
-        button { padding:10px; margin-top:10px; width:100%; border:none; background:#007bff; color:white;}
+    <title>Student Registration Form</title>
+
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+        }
+
+        .header img {
+            width: 200px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(15px);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
     </style>
 </head>
 
 <body>
+
+<div class="header">
+    <img src="logo3.png" alt="GMRIT Logo">
+    <h2>GMRIT Deemed to be University</h2>
+</div>
+
 <div class="container">
-<h2>Student Registration</h2>
 
-<form id="studentForm">
+    <h2>Student Registration Form</h2>
 
-<input type="text" id="name" placeholder="Student Name" required>
+  <form id="studentForm">
 
-<select id="gender">
-<option>Male</option>
-<option>Female</option>
-</select>
+    <label>Registration Number</label>
+    <input type="text" name="regno" required>
 
-<select id="category">
-<option>OC</option>
-<option>BC-A</option>
-<option>BC-B</option>
-<option>BC-C</option>
-<option>BC-D</option>
-<option>SC</option>
-<option>ST</option>
-<option>Others</option>
-</select>
+    <label>Name of Student (as per SSC)</label>
+    <input type="text" name="name" required>
 
-<input type="tel" id="mobile" placeholder="WhatsApp Number">
-<input type="tel" id="altMobile" placeholder="Alternative Number">
-<input type="email" id="email" placeholder="Email">
+    <label>Gender</label>
+    <select name="gender">
+        <option>Male</option>
+        <option>Female</option>
+    </select>
 
-<textarea id="address" placeholder="Address"></textarea>
+    <label>Category</label>
+    <select name="category">
+        <option>OC</option>
+        <option>BC-A</option>
+        <option>BC-B</option>
+        <option>BC-C</option>
+        <option>BC-D</option>
+        <option>SC</option>
+        <option>ST</option>
+        <option>Others</option>
+    </select>
 
-<input type="text" id="college" placeholder="College Name">
-<input type="text" id="place" placeholder="Place">
-<input type="text" id="type" placeholder="College Type">
+    <label>Mobile Number (WhatsApp)</label>
+    <input type="text" name="mobile">
 
-<input type="number" id="ssc" placeholder="SSC Marks">
-<input type="number" id="inter" placeholder="Intermediate Marks">
-<input type="number" id="jee" placeholder="JEE Score">
+    <label>Alternative Mobile Number</label>
+    <input type="text" name="alt_mobile">
 
-<select id="parents">
-<option>Orphan</option>
-<option>Single parent</option>
-<option>Both parents alive</option>
-</select>
+    <label>Email ID</label>
+    <input type="email" name="email">
 
-<input type="text" id="father" placeholder="Father Name">
-<input type="text" id="fatherOcc" placeholder="Father Occupation">
-<input type="text" id="mother" placeholder="Mother Name">
-<input type="text" id="motherOcc" placeholder="Mother Occupation">
+    <label>Permanent Address</label>
+    <textarea name="address"></textarea>
 
-<select id="branch">
-<option>CSE</option>
-<option>AI & ML</option>
-<option>AI & DS</option>
-<option>IT</option>
-<option>Mechanical</option>
-<option>Civil</option>
-<option>EEE</option>
-<option>ECE</option>
-</select>
+    <label>Name of College</label>
+    <select name="college">
+        <option>Sri Chaitanya College (Srikakulam)</option>
+        <option>Sri Chaitanya College (Rajam)</option>
+        <option>Gnana Jyothi College (Narasannapeta)</option>
+        <option>Tammi Naidu Junior College (Palakonda)</option>
+        <option>Santhiniketan Junior College (Ranastalam)</option>
+    </select>
 
-<button type="button" onclick="submitData()">Submit</button>
-<button type="button" onclick="downloadExcel()">Download Excel</button>
+    <label>Place</label>
+    <input type="text" name="place">
+
+    <label>SSC Marks</label>
+    <input type="text" name="ssc">
+
+    <label>Intermediate Marks</label>
+    <input type="text" name="inter">
+
+    <label>JEE Score</label>
+    <input type="text" name="jee">
+
+    <label>Status of Parents</label>
+    <select name="parent_status">
+        <option>Orphan</option>
+        <option>Single parent</option>
+        <option>Both parents alive</option>
+    </select>
+
+    <label>Father Name</label>
+    <input type="text" name="father">
+
+    <label>Father Occupation</label>
+    <input type="text" name="father_occ">
+
+    <label>Mother Name</label>
+    <input type="text" name="mother">
+
+    <label>Mother Occupation</label>
+    <input type="text" name="mother_occ">
+
+    <label>Interested B.Tech Branch</label>
+    <select name="branch">
+        <option>Computer Science Engineering (CSE)</option>
+        <option>CSE - Artificial Intelligence and Machine Learning (AI&ML)</option>
+        <option>CSE - Artificial Intelligence and Data Science (AI&DS)</option>
+        <option>CSE - Information Technology (IT)</option>
+        <option>Mechanical Engineering</option>
+        <option>Civil Engineering</option>
+        <option>Electrical and Electronics Engineering (EEE)</option>
+        <option>Electronics and Communication Engineering (ECE)</option>
+    </select>
+
+    <button type="submit">Submit</button>
 
 </form>
 </div>
 
 <script>
-let allData = [["Name","Gender","Category","Mobile","Alt Mobile","Email","Address","College","Place","Type","SSC","Inter","JEE","Parents","Father","Father Occ","Mother","Mother Occ","Branch"]];
+const scriptURL = "https://script.google.com/macros/s/AKfycbygmYEd7kVafpVe3SbeO3jBaN40a85N2Vnm6AnDRcxgcVUlp6el1OyT00R-h91VgKWgdA/exec";
 
-function getFormData(){
-return [
-document.getElementById("name").value,
-document.getElementById("gender").value,
-document.getElementById("category").value,
-document.getElementById("mobile").value,
-document.getElementById("altMobile").value,
-document.getElementById("email").value,
-document.getElementById("address").value,
-document.getElementById("college").value,
-document.getElementById("place").value,
-document.getElementById("type").value,
-document.getElementById("ssc").value,
-document.getElementById("inter").value,
-document.getElementById("jee").value,
-document.getElementById("parents").value,
-document.getElementById("father").value,
-document.getElementById("fatherOcc").value,
-document.getElementById("mother").value,
-document.getElementById("motherOcc").value,
-document.getElementById("branch").value
-];
-}
+document.getElementById("studentForm").addEventListener("submit", e => {
+    e.preventDefault();
 
-function submitData(){
-let row = getFormData();
-allData.push(row);
-
-// 🔥 GOOGLE SHEETS LINK (REPLACE BELOW)
-fetch("https://script.google.com/macros/s/AKfycbzz5FL_Tizpp-pWTYOWsJHozmk0J6hKFjbRn6DpR07vmBhd5Yb7WeaByK0PkS6iNcv6/exec", {
-method: "POST",
-body: JSON.stringify({data: row})
+    fetch(scriptURL, {
+        method: "POST",
+        body: new FormData(document.getElementById("studentForm"))
+    })
+    .then(response => {
+        alert("Data submitted successfully!");
+        document.getElementById("studentForm").reset();
+    })
+    .catch(error => alert("Error! " + error.message));
 });
-
-alert("Data Saved!");
-document.getElementById("studentForm").reset();
-}
 </script>
 
 </body>
