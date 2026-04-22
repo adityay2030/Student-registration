@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <style>
+        body { font-family: Arial; background:#f4f6f8; padding:20px;}
+        .container { max-width:700px; margin:auto; background:#fff; padding:20px; border-radius:10px;}
+        input, select, textarea { width:100%; padding:8px; margin:8px 0;}
+        button { padding:10px; margin-top:10px; width:100%; border:none; background:#007bff; color:white;}
+    </style>
+</head>
+
+<body>
+<div class="container">
+<h2>Student Data Collection</h2>
+
+<form id="studentForm">
+
+<input type="text" id="name" placeholder="Student Name" required>
+
+<select id="gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<select id="category">
+<option>OC</option>
+<option>BC-A</option>
+<option>BC-B</option>
+<option>BC-C</option>
+<option>BC-D</option>
+<option>SC</option>
+<option>ST</option>
+<option>Others</option>
+</select>
+
+<input type="tel" id="mobile" placeholder="WhatsApp Number">
+<input type="tel" id="altMobile" placeholder="Alternative Number">
+<input type="email" id="email" placeholder="Email">
+
+<textarea id="address" placeholder="Address"></textarea>
+
+<input type="text" id="college" placeholder="College Name">
+<input type="text" id="place" placeholder="Place">
+<input type="text" id="type" placeholder="College Type">
+
+<input type="number" id="ssc" placeholder="SSC Marks">
+<input type="number" id="inter" placeholder="Intermediate Marks">
+<input type="number" id="jee" placeholder="JEE Score">
+
+<select id="parents">
+<option>Orphan</option>
+<option>Single parent</option>
+<option>Both parents alive</option>
+</select>
+
+<input type="text" id="father" placeholder="Father Name">
+<input type="text" id="fatherOcc" placeholder="Father Occupation">
+<input type="text" id="mother" placeholder="Mother Name">
+<input type="text" id="motherOcc" placeholder="Mother Occupation">
+
+<select id="branch">
+<option>CSE</option>
+<option>AI & ML</option>
+<option>AI & DS</option>
+<option>IT</option>
+<option>Mechanical</option>
+<option>Civil</option>
+<option>EEE</option>
+<option>ECE</option>
+</select>
+
+<button type="button" onclick="submitData()">Submit</button>
+<button type="button" onclick="downloadExcel()">Download Excel</button>
+
+</form>
+</div>
+
+<script>
+let allData = [["Name","Gender","Category","Mobile","Alt Mobile","Email","Address","College","Place","Type","SSC","Inter","JEE","Parents","Father","Father Occ","Mother","Mother Occ","Branch"]];
+
+function getFormData(){
+return [
+document.getElementById("name").value,
+document.getElementById("gender").value,
+document.getElementById("category").value,
+document.getElementById("mobile").value,
+document.getElementById("altMobile").value,
+document.getElementById("email").value,
+document.getElementById("address").value,
+document.getElementById("college").value,
+document.getElementById("place").value,
+document.getElementById("type").value,
+document.getElementById("ssc").value,
+document.getElementById("inter").value,
+document.getElementById("jee").value,
+document.getElementById("parents").value,
+document.getElementById("father").value,
+document.getElementById("fatherOcc").value,
+document.getElementById("mother").value,
+document.getElementById("motherOcc").value,
+document.getElementById("branch").value
+];
+}
+
+function submitData(){
+let row = getFormData();
+allData.push(row);
+
+// 🔥 GOOGLE SHEETS LINK (REPLACE BELOW)
+fetch("https://script.google.com/macros/s/AKfycbzz5FL_Tizpp-pWTYOWsJHozmk0J6hKFjbRn6DpR07vmBhd5Yb7WeaByK0PkS6iNcv6/exec", {
+method: "POST",
+body: JSON.stringify({data: row})
+});
+
+alert("Data Saved!");
+document.getElementById("studentForm").reset();
+}
+
+function downloadExcel(){
+let csv = "data:text/csv;charset=utf-8,";
+allData.forEach(r => csv += r.join(",") + "\n");
+
+let link = document.createElement("a");
+link.href = encodeURI(csv);
+link.download = "students.csv";
+link.click();
+}
+</script>
+
+</body>
+</html>
