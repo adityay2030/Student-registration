@@ -12,7 +12,7 @@
 
 <body>
 <div class="container">
-<h2>Student Data Collection</h2>
+<h2>Student Registration</h2>
 
 <form id="studentForm">
 
@@ -115,16 +115,6 @@ body: JSON.stringify({data: row})
 
 alert("Data Saved!");
 document.getElementById("studentForm").reset();
-}
-
-function downloadExcel(){
-let csv = "data:text/csv;charset=utf-8,";
-allData.forEach(r => csv += r.join(",") + "\n");
-
-let link = document.createElement("a");
-link.href = encodeURI(csv);
-link.download = "students.csv";
-link.click();
 }
 </script>
 
